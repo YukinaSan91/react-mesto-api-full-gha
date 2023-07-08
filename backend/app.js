@@ -33,11 +33,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cors());
 
-// eslint-disable-next-line arrow-body-style
-app.use('*', (req, res, next) => {
-  return next(new NotFoundError('Запрашиваемый ресурс не найден'));
-});
-
 app.use(requestLogger);
 
 app.get('/crash-test', () => {
@@ -66,6 +61,11 @@ app.post('/signin', celebrate({
 app.use(auth);
 app.use(usersRouter);
 app.use(cardsRouter);
+
+// eslint-disable-next-line arrow-body-style
+app.use('*', (req, res, next) => {
+  return next(new NotFoundError('Запрашиваемый ресурс не найден'));
+});
 
 app.use(errorLogger);
 
