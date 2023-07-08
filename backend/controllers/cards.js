@@ -53,14 +53,14 @@ module.exports.deleteCard = (req, res, next) => {
           res.status(STATUS_CODE).send(card);
         })
       // eslint-disable-next-line consistent-return
-        .catch((err) => {
-          if (err.name === 'CastError') {
-            return next(new ValidationError('Переданы некорректные данные'));
-          }
-          return next(err);
-        });
+        .catch(next);
     })
-    .catch(next);
+    .catch((err) => {
+      if (err.name === 'CastError') {
+        return next(new ValidationError('Переданы некорректные данные'));
+      }
+      return next(err);
+    });
 };
 
 module.exports.likeCard = (req, res, next) => {
