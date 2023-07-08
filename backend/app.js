@@ -4,7 +4,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
-const { PORT = 4000, BD_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
+const { PORT = 3000, BD_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
 
 const app = express();
 const helmet = require('helmet');
