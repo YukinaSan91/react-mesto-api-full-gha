@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://localhost:3000';
+export const BASE_URL = 'https://api.yukina91.nomoredomains.work';
 
 export const checkingResponse = (res) => {
   if (res.ok) {
